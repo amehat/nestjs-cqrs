@@ -28,6 +28,8 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+Simple Nestjs application implementing CQRS principles around a product.
+
 ## Installation
 
 ```bash
@@ -37,6 +39,12 @@ $ npm install
 ## Running the app
 
 ```bash
+# start docker compose
+$ docker-compose up
+
+# end docker compose
+$ docker-compose down
+
 # development
 $ npm run start
 
@@ -46,6 +54,56 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+## REST
+
+### Create product
+
+POST http://localhost:3000/product
+
+Body raw (JSON):
+
+```json
+{
+	"name": "chemise",
+	"sku": "f5865847-6951-467d-a1bd-bef0b970ab35",
+	"price": "29",
+	"currency": "euro"
+}
+```
+
+### Update Product
+
+PUT http://localhost:3000/product/{id}
+
+Example : http://localhost:3000/product/f5865847-6951-467d-a1bd-bef0b970ab35
+
+Body raw (JSON):
+
+```json
+{
+	"name": "pantalon",
+	"sku": "f5865847-6951-467d-a1bd-bef0b970ab35",
+	"price": "43",
+	"currency": "euro"
+}
+```
+
+### Delete product
+
+DELETE http://localhost:3000/product/{id}
+
+Example : http://localhost:3000/product/f5865847-6951-467d-a1bd-bef0b970ab35
+
+### Get all products
+
+GET http://localhost:3000/product
+
+### Get product by sku
+
+GET http://localhost:3000/product/{id}
+
+Example : http://localhost:3000/product/f5865847-6951-467d-a1bd-bef0b970ab35
 
 ## Test
 
@@ -60,16 +118,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
-  Nest is [MIT licensed](LICENSE).
+ [MIT licensed](LICENSE).
